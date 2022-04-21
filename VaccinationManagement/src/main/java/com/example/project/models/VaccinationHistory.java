@@ -2,6 +2,7 @@ package com.example.project.models;
 
 
 import com.example.project.models.enumm.Status;
+import com.example.project.models.enumm.StatusVaccinationHistory;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class VaccinationHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer vaccinationHistoryId;
     @Enumerated(EnumType.ORDINAL)
-    private Status status;
+    private StatusVaccinationHistory statusVaccinationHistory;
     private Double dosage;
     private String preStatus;
     private String afterStatus;

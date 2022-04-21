@@ -1,5 +1,6 @@
 package com.example.project.models;
 
+import com.example.project.models.enumm.StatusVaccination;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,8 @@ public class Vaccination {
     private String endTime;
     @Column(columnDefinition = "Date")
     private String date;
-    private Boolean status;
+    @Enumerated(EnumType.ORDINAL)
+    private StatusVaccination statusVaccination;
     private String description;
     private Boolean deleteFlag;
     @OneToMany(mappedBy = "vaccination")
@@ -32,5 +34,8 @@ public class Vaccination {
     @ManyToOne
     @JoinColumn(name = "location_id",nullable = false)
     private Location location;
+    @ManyToOne
+    @JoinColumn(name = "vaccine_id",nullable = false)
+    private Vaccine vaccine;
 }
 

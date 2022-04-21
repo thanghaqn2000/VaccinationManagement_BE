@@ -24,7 +24,8 @@ public class Patient {
     private String name;
     private String phoneNumber;
     private String email;
-    private Date dateOfBirth;
+    @Column(columnDefinition = "Date")
+    private String dateOfBirth;
     @Enumerated(EnumType.ORDINAL)
     private Gender gender;
     private boolean deleteFlag;

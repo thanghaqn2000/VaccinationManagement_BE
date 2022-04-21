@@ -9,15 +9,16 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NoArgsConstructor
-public class Location {
+public class Provider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer locationId;
+    private Integer providerId;
     private String name;
-    @OneToMany(mappedBy = "location")
+    private String country;
+    @OneToMany(mappedBy = "provider")
     @JsonBackReference
-    private Set<Vaccination> vaccinationList;
+    private Set<Vaccine> vaccineList;
 }

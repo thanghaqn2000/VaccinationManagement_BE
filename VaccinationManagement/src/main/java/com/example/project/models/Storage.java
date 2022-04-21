@@ -10,14 +10,16 @@ import java.util.Set;
 
 @Data
 @AllArgsConstructor
-@Entity
+@Entity(name = "storage")
 @NoArgsConstructor
-public class Location {
+public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer locationId;
-    private String name;
-    @OneToMany(mappedBy = "location")
-    @JsonBackReference
-    private Set<Vaccination> vaccinationList;
+    private Integer storageId;
+    private int quantity;
+    private Long price;
+    @ManyToOne
+    @JoinColumn(name = "vaccine_id",nullable = false)
+    private Vaccine vaccine;
 }
+
